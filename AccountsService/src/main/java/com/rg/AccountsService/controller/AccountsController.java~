@@ -1,6 +1,5 @@
 package com.rg.AccountsService.controller;
 
-import com.rg.AccountsService.Constants.AccountConstant;
 import com.rg.AccountsService.dto.CustomerDTO;
 import com.rg.AccountsService.dto.ResponseDTO;
 import org.springframework.http.HttpStatus;
@@ -18,8 +17,7 @@ public class AccountsController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body( new ResponseDTO(
-                        AccountConstant.STATUS_201,
-                        AccountConstant.MESSAGE_201
+
                 ));
 
     }

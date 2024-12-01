@@ -1,0 +1,18 @@
+package com.rg.AccountsService.service.impl;
+
+import com.rg.AccountsService.dto.CustomerDTO;
+import com.rg.AccountsService.repositoty.AccountsRepository;
+import com.rg.AccountsService.repositoty.CustomerRepository;
+import com.rg.AccountsService.service.IAccountService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AccountService implements IAccountService {
+   private  AccountsRepository accountsRepository;
+   private CustomerRepository customerRepository;
+
+    @Override
+    public void createAccount(CustomerDTO customerDTO) {
+
+    }
+}
