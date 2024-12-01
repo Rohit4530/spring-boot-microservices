@@ -36,8 +36,7 @@ public class AccountService implements IAccountService {
         if(customerOptional.isPresent()){
             throw  new CustomerAlreadyExistException("customer already registered with mobile number: "+customerDTO.getMobileNumber());
         }
-       customer.setCreatedBy("Anonymous");
-        customer.setCreatedAt(LocalDateTime.now());
+
        Customer savedCustomer= customerRepository.save(customer);
        accountsRepository.save(createNewAccount(savedCustomer));
     }
