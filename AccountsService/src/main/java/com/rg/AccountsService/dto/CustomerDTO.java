@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class CustomerDTO {
     private String name;
     private  String email;
     private  String mobileNumber;
+    private AccountDTO accountDTO;
 }

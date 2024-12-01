@@ -2,6 +2,9 @@ package com.rg.AccountsService.Constants;
 
 public class AccountConstant {
 
+    public static final String STATUS_404 = "404";
+    public static final String MESSAGE_404 = "Resource Not Found";
+
     private  AccountConstant(){}
     public static final String SAVINGS="SAVINGS";
     public static final String ADDRESS="AT POST KARANAJI, DISTRICT AHMEDNAGAR, MAHARASHTRA";

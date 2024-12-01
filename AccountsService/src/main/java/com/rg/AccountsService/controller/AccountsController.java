@@ -25,7 +25,52 @@ public class AccountsController {
                         AccountConstant.STATUS_201,
                         AccountConstant.MESSAGE_201
                 ));
+    }
+    @GetMapping("/fetch")
+    public ResponseEntity<CustomerDTO>fetchAccountDetails(@RequestParam("mobileNumber") String mobileNumber) throws Exception {
+       CustomerDTO customerDTO= accountService.fetchAccountDetails(mobileNumber);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(customerDTO);
+    }
 
+    @PutMapping("/update")
+    public ResponseEntity<ResponseDTO> updateAccount(@RequestBody CustomerDTO customerDTO) throws Exception {
+        boolean isUpdated = accountService.updateAccount(customerDTO);
+        if (isUpdated) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ResponseDTO(
+                            AccountConstant.STATUS_200,
+                            AccountConstant.MESSAGE_200
+                    ));
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(new ResponseDTO(
+                            AccountConstant.STATUS_404,
+                            AccountConstant.MESSAGE_404
+                    ));
+        }
+    }
+    @DeleteMapping("/delete")
+    public ResponseEntity<ResponseDTO> deleteAccount(@RequestParam("mobileNumber") String mobileNumber) throws Exception {
+        boolean isDeleted = accountService.deleteAccount(mobileNumber);
+        if (isDeleted) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(new ResponseDTO(
+                            AccountConstant.STATUS_200,
+                            AccountConstant.MESSAGE_200
+                    ));
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(new ResponseDTO(
+                            AccountConstant.STATUS_404,
+                            AccountConstant.MESSAGE_404
+                    ));
+        }
     }
 
 }
