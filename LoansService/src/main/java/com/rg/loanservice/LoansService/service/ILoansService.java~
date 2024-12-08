@@ -1,4 +1,0 @@
-package com.rg.loanservice.LoansService.service;
-
-public interface ILoansService {
-}
