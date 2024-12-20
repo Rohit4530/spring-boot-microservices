@@ -1,6 +1,10 @@
 server:
   port: 8090
+
 spring:
+  application:
+    name: loans
+
   datasource:
     url: jdbc:mysql://localhost:3307/loans
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,3 +18,11 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true

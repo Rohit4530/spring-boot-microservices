@@ -7,6 +7,11 @@
         <option value="$PROJECT_DIR$/spring-boot-microservices/cards/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-microservices/loans/pom.xml" />
         <option value="$PROJECT_DIR$/spring-boot-microservices/accounts/pom.xml" />
+        <option value="$PROJECT_DIR$/service-discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/accounts/pom.xml" />
+        <option value="$PROJECT_DIR$/cards/pom.xml" />
+        <option value="$PROJECT_DIR$/loans/pom.xml" />
       </list>
     </option>
   </component>

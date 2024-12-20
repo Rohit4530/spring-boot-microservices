@@ -49,10 +49,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://loans-db:3306/loans
     depends_on:
       - loans-db
-      - eureka-server
     networks:
       - microservices-network
-    entrypoint: ["sh", "-c", "while ! curl -s http://eureka-server:8761/eureka/apps; do sleep 5; done; java -jar /app.jar"]
 
   cards-db:
     container_name: cards-db
@@ -78,7 +76,6 @@ services:
       - cards-db
     networks:
       - microservices-network
-    entrypoint: ["sh", "-c", "while ! curl -s http://eureka-server:8761/eureka/apps; do sleep 5; done; java -jar /app.jar"]
 
   eureka-server:
     container_name: eureka-server
