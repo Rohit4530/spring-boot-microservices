@@ -1,0 +1,85 @@
+
+services:
+  accounts-db:
+    container_name: accounts-db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: accounts
+    ports:
+      - "3306:3306"
+    volumes:
+      - accounts-db-data:/var/lib/mysql
+    networks:
+      - microservices-network
+
+  accounts:
+    container_name: accounts
+    image: rohitgunjal547/accounts:v1
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://accounts-db:3306/accounts
+    depends_on:
+      - accounts-db
+    networks:
+      - microservices-network
+
+  loans-db:
+    container_name: loans-db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: loans
+    ports:
+      - "3307:3306"
+    volumes:
+      - loans-db-data:/var/lib/mysql
+    networks:
+      - microservices-network
+
+  loans:
+    container_name: loans
+    image: rohitgunjal547/loans:v1
+    ports:
+      - "8090:8090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://loans-db:3306/loans
+    depends_on:
+      - loans-db
+    networks:
+      - microservices-network
+
+  cards-db:
+    container_name: cards-db
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cards
+    ports:
+      - "3308:3306"
+    volumes:
+      - cards-db-data:/var/lib/mysql
+    networks:
+      - microservices-network
+
+  cards:
+    container_name: cards
+    image: rohitgunjal547/cards:v1
+    ports:
+      - "9000:9000"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://cards-db:3306/cards
+    depends_on:
+      - cards-db
+    networks:
+      - microservices-network
+
+volumes:
+  accounts-db-data:
+  loans-db-data:
+  cards-db-data:
+
+networks:
+  microservices-network:
+    driver: bridge
